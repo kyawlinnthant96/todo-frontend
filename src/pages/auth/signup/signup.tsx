@@ -14,7 +14,7 @@ import { Button } from '@/components/ui/button.tsx';
 
 
 const Signup = () => {
-  const {form,onSubmit} = useSignupHook();
+  const {form,onSubmit,isLoading} = useSignupHook();
   return (
      <div className="grid grid-cols-5 grid-flow-col w-full min-h-screen">
       {/*  left */}
@@ -90,7 +90,7 @@ const Signup = () => {
               </FormItem>
             )}
           />
-            <Button type="submit" variant="default" size="lg" className={"mt-4"}>Register</Button>
+            <Button isLoading={isLoading} type="submit" variant="default" size="lg">Register</Button>
           </form>
         </Form>
 

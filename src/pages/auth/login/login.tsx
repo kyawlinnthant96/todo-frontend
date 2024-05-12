@@ -11,10 +11,11 @@ import {
 } from '@/components/ui/form.tsx';
 import { Input } from '@/components/ui/input.tsx';
 import useLoginHook from '@/pages/auth/login/useLoginHook.ts';
+import { Link } from 'react-router-dom';
 
 
 const Login = () => {
-  const {form,onSubmit} = useLoginHook();
+  const {form,onSubmit, isLoading} = useLoginHook();
 
   return (
     <div className="grid grid-cols-5 grid-flow-col w-full min-h-screen">
@@ -60,7 +61,10 @@ const Login = () => {
               </FormItem>
             )}
           />
-            <Button type="submit" variant="default" size="lg" className={"mt-4"}>Login</Button>
+            <Button type="submit" isLoading={isLoading} variant="default" size="lg" className={"mt-4"}>Login</Button>
+            <p className="text-sm">If you dont't have and account.Please <Link to="/signup">
+              <span className="text-primary font-medium">Signup</span>
+            </Link>  </p>
           </form>
         </Form>
 

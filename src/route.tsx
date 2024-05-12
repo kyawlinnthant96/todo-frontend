@@ -4,9 +4,12 @@ import AppLayout from '@/layout/AppLayout.tsx';
 import AppError from '@/components/app-error.tsx';
 import Dashboard from '@/pages/dashboard/dashboard.tsx';
 import Signup from '@/pages/auth/signup/signup.tsx';
+import Landing from '@/pages/auth/landing/landing.tsx';
 
 export const router = createBrowserRouter([
+  { path: "/", element: <Navigate to={"/dashboard"} replace /> },
   {
+    path: "/dashboard",
     element: <AppLayout />,
     errorElement: <AppError />,
     children: [
@@ -15,11 +18,12 @@ export const router = createBrowserRouter([
         index: true
       }
     ]
-  }
+  },
 ])
 
-export const loginRoute = createBrowserRouter([
-  {path: "*", element: <Navigate to="/"  replace />},
-  { index: true, element: <Login /> },
+export const authRoute = createBrowserRouter([
+  { index: true, element: <Landing /> },
   { path: '/signup', element: <Signup /> },
+  {path: "/login", element: <Login /> },
+  { path: '*', element: <Navigate to={"/"} replace /> },
 ]);
