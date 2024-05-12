@@ -3,6 +3,7 @@ import Login from '@/pages/auth/login';
 import AppLayout from '@/layout/AppLayout.tsx';
 import AppError from '@/components/app-error.tsx';
 import Dashboard from '@/pages/dashboard/dashboard.tsx';
+import Signup from '@/pages/auth/signup.tsx';
 
 export const router = createBrowserRouter([
   {
@@ -18,6 +19,7 @@ export const router = createBrowserRouter([
 ])
 
 export const loginRoute = createBrowserRouter([
+  {path: "*", element: <Navigate to="/"  replace />},
   { index: true, element: <Login /> },
-  { path: '*', element: <Navigate to='/' replace /> },
+  { path: '/signup', element: <Signup /> },
 ]);
