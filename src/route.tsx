@@ -1,9 +1,9 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom';
-import Login from '@/pages/auth/login';
+import Login from '@/pages/auth/login/login.tsx';
 import AppLayout from '@/layout/AppLayout.tsx';
 import AppError from '@/components/app-error.tsx';
 import Dashboard from '@/pages/dashboard/dashboard.tsx';
-import Signup from '@/pages/auth/signup.tsx';
+import Signup from '@/pages/auth/signup/signup.tsx';
 
 export const router = createBrowserRouter([
   {
