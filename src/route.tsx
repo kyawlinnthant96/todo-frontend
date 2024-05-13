@@ -7,23 +7,23 @@ import Signup from '@/pages/auth/signup/signup.tsx';
 import Landing from '@/pages/auth/landing/landing.tsx';
 
 export const router = createBrowserRouter([
-  { path: "/", element: <Navigate to={"/dashboard"} replace /> },
+  { path: '/', element: <Navigate to={'/dashboard'} replace /> },
   {
-    path: "/dashboard",
+    path: '/dashboard',
     element: <AppLayout />,
     errorElement: <AppError />,
     children: [
       {
         element: <Dashboard />,
-        index: true
-      }
-    ]
+        index: true,
+      },
+    ],
   },
-])
+]);
 
 export const authRoute = createBrowserRouter([
   { index: true, element: <Landing /> },
   { path: '/signup', element: <Signup /> },
-  {path: "/login", element: <Login /> },
-  { path: '*', element: <Navigate to={"/"} replace /> },
+  { path: '/login', element: <Login /> },
+  { path: '*', element: <Navigate to={'/'} replace /> },
 ]);
