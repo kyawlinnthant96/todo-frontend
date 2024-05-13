@@ -1,14 +1,14 @@
 import { RouterProvider } from 'react-router-dom';
-import { loginRoute, router } from '@/route.tsx';
+import { authRoute, router } from '@/route.tsx';
+import { useAppSelector } from '@/store/hook.ts';
 
 const App = () => {
-  const isAuthenticate = false;
-  if (isAuthenticate) {
-    return (
-      <RouterProvider router={router} />
-    );
+  const { isAuthenticate } = useAppSelector((state) => state.auth);
+
+  if (isAuthenticate || (localStorage.token && localStorage.info)) {
+    return <RouterProvider router={router} />;
   }
-  return <RouterProvider router={loginRoute} />;
+  return <RouterProvider router={authRoute} />;
 };
 
 export default App;
