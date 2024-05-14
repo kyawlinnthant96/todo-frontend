@@ -2,7 +2,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { cn } from '@/lib/utils.ts';
 import { Button } from '@/components/ui/button.tsx';
 import { useAppDispatch } from '@/store/hook.ts';
-import { setInfoInitialState, setIsAuthenticate } from '@/store/slices/auth.slice.ts';
+import { setInfo, setIsAuthenticate } from '@/store/slices/auth.slice.ts';
 
 const Sidebar = () => {
   const navigate = useNavigate();
@@ -10,11 +10,13 @@ const Sidebar = () => {
   const isActive = currentPath === 'dashboard';
   const dispatch = useAppDispatch();
   const handleLogout = () => {
-    dispatch(setInfoInitialState());
+    dispatch(setInfo(null));
     dispatch(setIsAuthenticate(false));
     localStorage.removeItem('info');
     localStorage.removeItem('token');
+    window.location.reload()
     navigate('/');
+
   };
 
   return (

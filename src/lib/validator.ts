@@ -20,5 +20,5 @@ export const registerValidationSchema = z
 export const createTaskValidationSchema = z.object({
   title: z.string().min(1, { message: 'title is required' }),
   description: z.string().min(1, { message: 'description is required' }),
-  status: z.enum(['open', 'in_progress', 'done'], { message: 'Invalid status value' }),
+  status: z.string(),
 });

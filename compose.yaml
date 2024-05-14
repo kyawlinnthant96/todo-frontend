@@ -1,0 +1,11 @@
+services:
+  app:
+    container_name: todo-frontend
+    build: .
+    env_file:
+      - .env
+    ports:
+      - "3000:3000"
+networks:
+  todo-network:
+    external: true
