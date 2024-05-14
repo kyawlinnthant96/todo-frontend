@@ -3,17 +3,12 @@ import { UserAuthResponseProp } from '@/types/auth';
 
 interface AuthState {
   isAuthenticate: boolean;
-  info: UserAuthResponseProp;
+  info: UserAuthResponseProp | null;
 }
 
 const initialState: AuthState = {
   isAuthenticate: false,
-  info: {
-    _id: '',
-    name: '',
-    email: '',
-    __v: null,
-  },
+  info: null,
 };
 
 const authSlice = createSlice({
@@ -26,11 +21,8 @@ const authSlice = createSlice({
     setInfo: (state, action: PayloadAction<UserAuthResponseProp>) => {
       state.info = action.payload;
     },
-    setInfoInitialState: (state) => {
-      state.info = initialState;
-    },
   },
 });
 
-export const { setIsAuthenticate, setInfoInitialState, setInfo } = authSlice.actions;
+export const { setIsAuthenticate, setInfo } = authSlice.actions;
 export default authSlice.reducer;

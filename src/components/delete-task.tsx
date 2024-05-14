@@ -33,11 +33,10 @@ const DeleteTask = () => {
         dispatch(setCurrentTask(null));
         dispatch(setDeleteTaskDialog(false));
       },
-      onError: (error) => {
+      onError: () => {
         toast({
           title: 'Delete Task Fail',
           variant: 'destructive',
-          description: error?.response?.data?.message,
         });
       },
     });
