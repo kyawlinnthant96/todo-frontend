@@ -15,5 +15,5 @@ COPY --from=build /app/dist ./dist
 COPY --from=build /app/vite.config.ts ./vite.config.ts
 COPY --from=build /app/package.json ./package.json
 
-EXPOSE $PORT
+EXPOSE 3000
 CMD ["pnpm","preview"]
